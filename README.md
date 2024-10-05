@@ -13,8 +13,10 @@ sequenceDiagram
     Client A->>Client A: generatePublicKey()
     end
     Client A->>Server: register(APubKey, Username)
+    Client A->>Server: get clients list
+    Server ->> Client A: <ClientsList>
     Client A->>Server: getPubKey(ClientB)
-    Server->>Client A: BPubKey
+    Server->>Client A: <BPubKey>
     Client A->>Server: send to B: get symmetric key
     Note over Client A, Server: message encrypted by BPubKey
     loop
@@ -23,13 +25,13 @@ sequenceDiagram
     Server->>Client B: from A: get symmetric key
     Note over Server, Client B: message decrypted by BPriKey
     Client B->>Server: getPubKey(ClientA)
-    Server->>Client B: APubKey
-    Client B->>Server: send to A: SymKey
+    Server->>Client B: <APubKey>
+    Client B->>Server: send to A: <SymKey>
     Note over Server, Client B: message encrypted by APubKey
     loop
         Client A->>Server: pull messages
     end
-    Server->>Client A: from B: SymKey
+    Server->>Client A: from B: <SymKey>
     Note over Server, Client A: message decrypted by APriKey
     Client A->>Server: send to B: message
     Note over Client A, Server: message encrypted by SymKey
