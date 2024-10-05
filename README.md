@@ -1,5 +1,5 @@
 # Instant Messaging Program
-Sending encrypted messages between clients (C++) using end-to-end encryption through a TCP stateless server (Python), which stores unpulled messages and client data in an SQLite DB.
+Sending encrypted messages between clients (C++) using end-to-end encryption through a TCP stateless server (Python), which stores unpulled messages and client data in an SQLite database.
 
 ```mermaid 
 sequenceDiagram
@@ -20,7 +20,7 @@ sequenceDiagram
     loop
         Client B->>Server: pull messages
     end
-    Server->>Client B: from A: GetSymKey
+    Server->>Client B: from A: get symmetric key
     Note over Server, Client B: message decrypted by BPriKey
     Client B->>Server: getPubKey(ClientA)
     Server->>Client B: APubKey
