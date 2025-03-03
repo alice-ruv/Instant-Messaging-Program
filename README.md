@@ -1,5 +1,5 @@
 # Instant Messaging Program
-Sending encrypted messages between clients using end-to-end encryption through a TCP server.
+Sending encrypted messages (including files) between clients using end-to-end encryption through a TCP server.
 &nbsp;
 
 ## Technology Stack
